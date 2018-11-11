@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "applicationType": "microservice",
+    "gitCompany": "",
+    "baseName": "MasterLoanForms",
+    "packageName": "io.github.jhipster.masterloanforms",
+    "packageFolder": "io/github/jhipster/masterloanforms",
+    "serverPort": 8083,
+    "serviceDiscoveryType": "eureka",
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "enableSwaggerCodegen": false,
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "gatling"
+    ],
+    "enableTranslation": false,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "5.6.1",
+    "jwtSecretKey": "MzZiZWJkYzhhNTQ1Yzg3OWE4NGFiOWQxNDY1NWQ0NDAwZDUxOGU0YjY3ZWVjYTQ1ODVjMzg0OWE0OWE4N2ZlMzY2ODM3YTUyZGVkM2Y2ODU1MDRlMWE1MjYwNWFmZDFhODRiMjBiZGYzZmMyYjJjNGNhODg4M2I1NDY0M2MwNGM=",
+    "skipClient": true,
+    "skipUserManagement": true
+  },
+  "git-provider": "GitHub",
+  "git-company": "JZulRes",
+  "repository-name": "MasterLoanForms"
+}
