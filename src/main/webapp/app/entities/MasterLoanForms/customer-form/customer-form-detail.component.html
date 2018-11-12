@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customerForm">
+            <h2><span>Customer Form</span> {{customerForm.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Score</span></dt>
+                <dd>
+                    <span>{{customerForm.score}}</span>
+                </dd>
+                <dt><span>Verified</span></dt>
+                <dd>
+                    <span>{{customerForm.verified}}</span>
+                </dd>
+                <dt><span>Form Question</span></dt>
+                <dd>
+                    <div *ngIf="customerForm.formQuestion">
+                        <a [routerLink]="['/form-question', customerForm.formQuestion?.id, 'view']">{{customerForm.formQuestion?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Customer</span></dt>
+                <dd>
+                    <div *ngIf="customerForm.customer">
+                        <a [routerLink]="['/customer', customerForm.customer?.id, 'view']">{{customerForm.customer?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer-form', customerForm.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

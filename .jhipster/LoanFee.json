@@ -1,0 +1,39 @@
+{
+    "name": "LoanFee",
+    "fields": [
+        {
+            "fieldName": "paid",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "expirationDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "payDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "feeValue",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "loan",
+            "otherEntityName": "loan",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181112001323",
+    "entityTableName": "loan_fee",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "MasterLoanForms",
+    "applications": "*",
+    "microserviceName": "MasterLoanForms"
+}

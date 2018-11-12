@@ -1,0 +1,40 @@
+{
+    "name": "Loan",
+    "fields": [
+        {
+            "fieldName": "loanValue",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "paid",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "loanFee",
+            "otherEntityName": "loanFee",
+            "otherEntityRelationshipName": "loan"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "customer",
+            "otherEntityName": "customer",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181112001322",
+    "entityTableName": "loan",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "MasterLoanForms",
+    "applications": "*",
+    "microserviceName": "MasterLoanForms"
+}

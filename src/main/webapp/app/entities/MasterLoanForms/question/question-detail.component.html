@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="question">
+            <h2><span>Question</span> {{question.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Text Question</span></dt>
+                <dd>
+                    <span>{{question.textQuestion}}</span>
+                </dd>
+                <dt><span>Form Question</span></dt>
+                <dd>
+                    <div *ngIf="question.formQuestion">
+                        <a [routerLink]="['/form-question', question.formQuestion?.id, 'view']">{{question.formQuestion?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/question', question.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

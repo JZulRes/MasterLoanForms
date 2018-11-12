@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customer">
+            <h2><span>Customer</span> {{customer.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Cedula Customer</span></dt>
+                <dd>
+                    <span>{{customer.cedulaCustomer}}</span>
+                </dd>
+                <dt><span>Type Id Customer</span></dt>
+                <dd>
+                    <span>{{customer.typeIdCustomer}}</span>
+                </dd>
+                <dt><span>Signature Wallet</span></dt>
+                <dd>
+                    <span>{{customer.signatureWallet}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer', customer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

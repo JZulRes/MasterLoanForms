@@ -1,0 +1,30 @@
+{
+    "name": "Answer",
+    "fields": [
+        {
+            "fieldName": "textAnswer",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "formQuestion",
+            "otherEntityName": "formQuestion",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181112003626",
+    "entityTableName": "answer",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "MasterLoanForms",
+    "applications": "*",
+    "microserviceName": "MasterLoanForms"
+}

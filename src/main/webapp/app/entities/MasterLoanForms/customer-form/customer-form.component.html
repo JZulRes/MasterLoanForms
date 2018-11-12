@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span>Customer Forms</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-customer-form" [routerLink]="['/customer-form/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down" >
+            Create new Customer Form
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="Query">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="customerForms">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Score</span></th>
+            <th><span>Verified</span></th>
+            <th><span>Form Question</span></th>
+            <th><span>Customer</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let customerForm of customerForms ;trackBy: trackId">
+                <td><a [routerLink]="['/customer-form', customerForm.id, 'view' ]">{{customerForm.id}}</a></td>
+                <td>{{customerForm.score}}</td>
+                <td>{{customerForm.verified}}</td>
+                <td>
+                    <div *ngIf="customerForm.formQuestion">
+                        <a [routerLink]="['../form-question', customerForm.formQuestion?.id, 'view' ]" >{{customerForm.formQuestion?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="customerForm.customer">
+                        <a [routerLink]="['../customer', customerForm.customer?.id, 'view' ]" >{{customerForm.customer?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/customer-form', customerForm.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/customer-form', customerForm.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'customer-form/'+ customerForm.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

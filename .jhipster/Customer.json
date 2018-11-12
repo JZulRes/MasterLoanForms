@@ -1,0 +1,47 @@
+{
+    "name": "Customer",
+    "fields": [
+        {
+            "fieldName": "cedulaCustomer",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "typeIdCustomer",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "signatureWallet",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "customerForm",
+            "otherEntityName": "customerForm",
+            "otherEntityRelationshipName": "customer"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "loan",
+            "otherEntityName": "loan",
+            "otherEntityRelationshipName": "customer"
+        }
+    ],
+    "changelogDate": "20181112001320",
+    "entityTableName": "customer",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "MasterLoanForms",
+    "applications": "*",
+    "microserviceName": "MasterLoanForms"
+}

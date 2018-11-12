@@ -1,0 +1,102 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="juanfer (generated)" id="1541991021359-1">
+        <createTable tableName="answer">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="answerPK"/>
+            </column>
+            <column name="text_answer" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="form_question_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="juanfer (generated)" id="1541991021359-2">
+        <createTable tableName="customer">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="customerPK"/>
+            </column>
+            <column name="cedula_customer" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="signature_wallet" type="VARCHAR(255)"/>
+            <column name="type_id_customer" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="juanfer (generated)" id="1541991021359-3">
+        <createTable tableName="customer_form">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="customer_formPK"/>
+            </column>
+            <column name="score" type="VARCHAR(255)"/>
+            <column name="verified" type="VARCHAR(255)"/>
+            <column name="customer_id" type="BIGINT"/>
+            <column name="form_question_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="juanfer (generated)" id="1541991021359-4">
+        <createTable tableName="form_question">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="form_questionPK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="juanfer (generated)" id="1541991021359-5">
+        <createTable tableName="loan">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="loanPK"/>
+            </column>
+            <column name="loan_value" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="paid" type="VARCHAR(255)"/>
+            <column name="customer_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="juanfer (generated)" id="1541991021359-6">
+        <createTable tableName="loan_fee">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="loan_feePK"/>
+            </column>
+            <column name="expiration_date" type="BINARY(255)"/>
+            <column name="fee_value" type="INT"/>
+            <column name="paid" type="VARCHAR(255)"/>
+            <column name="pay_date" type="BINARY(255)"/>
+            <column name="loan_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="juanfer (generated)" id="1541991021359-7">
+        <createTable tableName="question">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="questionPK"/>
+            </column>
+            <column name="text_question" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="form_question_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="juanfer (generated)" id="1541991021359-8">
+        <addUniqueConstraint columnNames="form_question_id" constraintName="UC_CUSTOMER_FORMFORM_QUESTION_ID_COL" tableName="customer_form"/>
+    </changeSet>
+    <changeSet author="juanfer (generated)" id="1541991021359-9">
+        <addForeignKeyConstraint baseColumnNames="loan_id" baseTableName="loan_fee" constraintName="FK3golr8h707jojaj18p14w1s6j" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="loan"/>
+    </changeSet>
+    <changeSet author="juanfer (generated)" id="1541991021359-10">
+        <addForeignKeyConstraint baseColumnNames="form_question_id" baseTableName="answer" constraintName="FK7kadfagesegt560acavi83r89" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="form_question"/>
+    </changeSet>
+    <changeSet author="juanfer (generated)" id="1541991021359-11">
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="loan" constraintName="FKcwv05agfqwg5ndy6adbefsx7d" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="customer"/>
+    </changeSet>
+    <changeSet author="juanfer (generated)" id="1541991021359-12">
+        <addForeignKeyConstraint baseColumnNames="form_question_id" baseTableName="question" constraintName="FKd9vx7dnc10ihrl6vpjjfpkn3y" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="form_question"/>
+    </changeSet>
+    <changeSet author="juanfer (generated)" id="1541991021359-13">
+        <addForeignKeyConstraint baseColumnNames="form_question_id" baseTableName="customer_form" constraintName="FKhf6wmfyp1cs6qan32hv6630lk" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="form_question"/>
+    </changeSet>
+    <changeSet author="juanfer (generated)" id="1541991021359-14">
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="customer_form" constraintName="FKm19m0jc9tx3t3gy8tn6oo4erf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="customer"/>
+    </changeSet>
+</databaseChangeLog>

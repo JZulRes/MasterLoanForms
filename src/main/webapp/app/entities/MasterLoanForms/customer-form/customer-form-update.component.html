@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-customer-form-heading">Create or edit a Customer Form</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!customerForm.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="customerForm.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_score">Score</label>
+                    <input type="text" class="form-control" name="score" id="field_score"
+                        [(ngModel)]="customerForm.score" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_verified">Verified</label>
+                    <input type="text" class="form-control" name="verified" id="field_verified"
+                        [(ngModel)]="customerForm.verified" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_formQuestion">Form Question</label>
+                    <select class="form-control" id="field_formQuestion" name="formQuestion" [(ngModel)]="customerForm.formQuestion">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="formQuestionOption.id === customerForm.formQuestion?.id ? customerForm.formQuestion : formQuestionOption" *ngFor="let formQuestionOption of formquestions; trackBy: trackFormQuestionById">{{formQuestionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" [(ngModel)]="customerForm.customer" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id === customerForm.customer?.id ? customerForm.customer : customerOption" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

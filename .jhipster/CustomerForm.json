@@ -1,0 +1,39 @@
+{
+    "name": "CustomerForm",
+    "fields": [
+        {
+            "fieldName": "score",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "verified",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "formQuestion",
+            "otherEntityName": "formQuestion",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "customerForm"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "customer",
+            "otherEntityName": "customer",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181112001321",
+    "entityTableName": "customer_form",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "MasterLoanForms",
+    "applications": "*",
+    "microserviceName": "MasterLoanForms"
+}

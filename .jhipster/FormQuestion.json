@@ -1,0 +1,35 @@
+{
+    "name": "FormQuestion",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "question",
+            "otherEntityName": "question",
+            "otherEntityRelationshipName": "formQuestion"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "answer",
+            "otherEntityName": "answer",
+            "otherEntityRelationshipName": "formQuestion"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "customerForm",
+            "otherEntityName": "customerForm",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "formQuestion"
+        }
+    ],
+    "changelogDate": "20181112003624",
+    "entityTableName": "form_question",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "MasterLoanForms",
+    "applications": "*",
+    "microserviceName": "MasterLoanForms"
+}

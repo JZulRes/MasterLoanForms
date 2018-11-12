@@ -1,0 +1,28 @@
+{
+    "name": "FormQuestions",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "question",
+            "otherEntityName": "question",
+            "otherEntityRelationshipName": "formQuestions"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "answer",
+            "otherEntityName": "answers",
+            "otherEntityRelationshipName": "formQuestions"
+        }
+    ],
+    "changelogDate": "20181112001324",
+    "entityTableName": "form_questions",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "MasterLoanForms",
+    "applications": "*",
+    "microserviceName": "MasterLoanForms"
+}
